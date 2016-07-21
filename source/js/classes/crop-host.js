@@ -799,12 +799,12 @@ crop.factory('cropHost', ['$document', '$q', 'cropAreaCircle', 'cropAreaSquare',
 
         this.getDominantColor = function(uri) {
             var imageDC = new Image(),
-                colorThief = new ColorThief(),
+                //colorThief = new ColorThief(),
                 dominantColor = null,
                 _p = $q.defer();
             imageDC.src = uri;
             imageDC.onload = function() {
-                dominantColor = colorThief.getColor(imageDC);
+                dominantColor = [255, 255, 255];//colorThief.getColor(imageDC);
                 _p.resolve(dominantColor);
             };
 
@@ -813,12 +813,12 @@ crop.factory('cropHost', ['$document', '$q', 'cropAreaCircle', 'cropAreaSquare',
 
         this.getPalette = function(uri) {
             var imageDC = new Image(),
-                colorThief = new ColorThief(),
+                // colorThief = new ColorThief(),
                 palette = null,
                 _p = $q.defer();
             imageDC.src = uri;
             imageDC.onload = function() {
-                palette = colorThief.getPalette(imageDC, colorPaletteLength);
+                palette =  [ [255,255,255] ] // colorThief.getPalette(imageDC, colorPaletteLength);
                 _p.resolve(palette);
             };
 
